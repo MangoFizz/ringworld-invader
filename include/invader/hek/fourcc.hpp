@@ -75,6 +75,7 @@ namespace Invader::HEK {
         TAG_FOURCC_SOUND = 0x736E6421,
         TAG_FOURCC_SOUND_ENVIRONMENT = 0x736E6465,
         TAG_FOURCC_SHADER_MODEL = 0x736F736F,
+        TAG_FOURCC_SHADER_MODEL_EXTENDED = 0x736F7365,
         TAG_FOURCC_SHADER_TRANSPARENT_GENERIC = 0x736F7472,
         TAG_FOURCC_UI_WIDGET_COLLECTION = 0x536F756C,
         TAG_FOURCC_SHADER_TRANSPARENT_PLASMA = 0x73706C61,
@@ -125,6 +126,7 @@ namespace Invader::HEK {
     #define IS_SHADER_TAG(tag_fourcc) (tag_fourcc == TagFourCC::TAG_FOURCC_SHADER || \
                                        tag_fourcc == TagFourCC::TAG_FOURCC_SHADER_ENVIRONMENT || \
                                        tag_fourcc == TagFourCC::TAG_FOURCC_SHADER_MODEL || \
+                                       tag_fourcc == TagFourCC::TAG_FOURCC_SHADER_MODEL_EXTENDED || \
                                        tag_fourcc == TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_CHICAGO || \
                                        tag_fourcc == TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_CHICAGO_EXTENDED || \
                                        tag_fourcc == TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_GENERIC || \
@@ -274,6 +276,8 @@ namespace Invader::HEK {
              return "sound_environment";
          case TagFourCC::TAG_FOURCC_SHADER_MODEL:
              return "shader_model";
+         case TagFourCC::TAG_FOURCC_SHADER_MODEL_EXTENDED:
+             return "shader_model_extended";
          case TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_GENERIC:
              return "shader_transparent_generic";
          case TagFourCC::TAG_FOURCC_UI_WIDGET_COLLECTION:

@@ -320,6 +320,7 @@ namespace Invader::Parser {
                     break;
                 case TagFourCC::TAG_FOURCC_SHADER_ENVIRONMENT:
                 case TagFourCC::TAG_FOURCC_SHADER_MODEL:
+                case TagFourCC::TAG_FOURCC_SHADER_MODEL_EXTENDED:
                 case TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_CHICAGO:
                 case TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_CHICAGO_EXTENDED:
                 case TagFourCC::TAG_FOURCC_SHADER_TRANSPARENT_GENERIC:

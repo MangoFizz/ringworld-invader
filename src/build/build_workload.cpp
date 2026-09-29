@@ -722,6 +722,7 @@ namespace Invader {
             COMPILE_TAG_CLASS(Sound, TAG_FOURCC_SOUND)
             COMPILE_TAG_CLASS(SoundEnvironment, TAG_FOURCC_SOUND_ENVIRONMENT)
             COMPILE_TAG_CLASS(ShaderModel, TAG_FOURCC_SHADER_MODEL)
+            COMPILE_TAG_CLASS(ShaderModelExtended, TAG_FOURCC_SHADER_MODEL_EXTENDED)
             COMPILE_TAG_CLASS(ShaderTransparentGeneric, TAG_FOURCC_SHADER_TRANSPARENT_GENERIC)
             COMPILE_TAG_CLASS(TagCollection, TAG_FOURCC_UI_WIDGET_COLLECTION)
             COMPILE_TAG_CLASS(ShaderTransparentPlasma, TAG_FOURCC_SHADER_TRANSPARENT_PLASMA)
@@ -1151,6 +1152,10 @@ namespace Invader {
                 case TagFourCC::TAG_FOURCC_PLACEHOLDER:
                 case TagFourCC::TAG_FOURCC_PROJECTILE:
                     tag_index.secondary_class = TagFourCC::TAG_FOURCC_OBJECT;
+                    break;
+                case TagFourCC::TAG_FOURCC_SHADER_MODEL_EXTENDED:
+                    tag_index.secondary_class = TagFourCC::TAG_FOURCC_SHADER_MODEL;
+                    tag_index.tertiary_class = TagFourCC::TAG_FOURCC_SHADER;
                     break;
                 case TagFourCC::TAG_FOURCC_SHADER_ENVIRONMENT:
                 case TagFourCC::TAG_FOURCC_SHADER_MODEL:

@@ -109,6 +109,47 @@ namespace Invader::Parser {
         VERIFY_BITMAP_IS_TYPE(reflection_cube_map, BITMAP_TYPE_CUBE_MAPS);
     }
 
+    void ShaderModelExtended::pre_compile(BuildWorkload &workload, std::size_t tag_index, std::size_t, std::size_t) {
+        // Error if the target engine can't use it
+        if(workload.get_build_parameters()->details.build_cache_file_engine != HEK::CacheFileEngine::CACHE_FILE_RINGWORLD) {
+            workload.report_error(BuildWorkload::ErrorType::ERROR_TYPE_FATAL_ERROR, "shader_model_extended tags do not exist on the target engine. Use shader_model, instead.", tag_index);
+            throw InvalidTagDataException();
+        }
+
+        this->shader_type = HEK::ShaderType::SHADER_TYPE_MODEL;
+        this->unknown = 1.0F;
+
+        if(this->map_u_scale == 0.0F && this->map_v_scale == 0.0F) {
+            this->map_u_scale = 1.0F;
+            this->map_v_scale = 1.0F;
+        }
+        else if(this->map_u_scale == 0.0F) {
+            this->map_u_scale = this->map_v_scale;
+        }
+        else if(this->map_v_scale == 0.0F) {
+            this->map_v_scale = this->map_u_scale;
+        }
+
+        if(this->reflection_falloff_distance >= this->reflection_cutoff_distance && (this->reflection_cutoff_distance != 0.0F && this->reflection_falloff_distance != 0.0F)) {
+            REPORT_ERROR_PRINTF(workload, ERROR_TYPE_WARNING_PEDANTIC, tag_index, "Reflection falloff is greater than or equal to cutoff, so both of these values were set to 0 (%f >= %f)", this->reflection_falloff_distance, this->reflection_cutoff_distance);
+            this->reflection_cutoff_distance = 0.0F;
+            this->reflection_falloff_distance = 0.0F;
+        }
+    }
+
+    void ShaderModelExtended::post_compile(BuildWorkload &workload, std::size_t tag_index, std::size_t struct_index, std::size_t) {
+        GET_SHADER_STRUCT
+        VERIFY_BITMAP_IS_TYPE(base_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(multipurpose_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(detail_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(reflection_cube_map, BITMAP_TYPE_CUBE_MAPS);
+        VERIFY_BITMAP_IS_TYPE(base_normal_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(detail_normal_1_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(detail_normal_2_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(specular_color_map, BITMAP_TYPE_2D_TEXTURES);
+        VERIFY_BITMAP_IS_TYPE(detail_2_map, BITMAP_TYPE_2D_TEXTURES);
+    }
+
     void ShaderTransparentChicago::pre_compile(BuildWorkload &workload, std::size_t, std::size_t, std::size_t) {
         this->shader_type = convert_shader_type(workload, HEK::ShaderType::SHADER_TYPE_TRANSPARENT_CHICAGO);
         default_maps(this->maps);

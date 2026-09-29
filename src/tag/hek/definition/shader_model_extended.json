@@ -1,0 +1,173 @@
+[
+    {
+        "name": "ShaderModelExtendedSpecularColorFlags",
+        "type": "bitfield",
+        "fields": [
+            "alpha as exponent mask"
+        ],
+        "width": 16
+    },
+    {
+        "name": "ShaderModelExtendedDiffuseLightingFlags",
+        "type": "bitfield",
+        "fields": [
+            "do not use dlms bsp"
+        ],
+        "width": 16
+    },
+    {
+        "name": "ShaderModelExtended",
+        "groups": [
+            {
+                "name": "second detail map",
+                "first": "detail 2 function",
+                "description": "A second detail map blended with the same technique as the base detail map: the function controls how it combines and the mask gates it by a multipurpose map channel, where white applies the detail fully and gray fades it."
+            },
+            {
+                "name": "bump properties",
+                "first": "base normal map",
+                "description": "Base normal map RGB holds tangent-space normals. Its alpha interpolates between no detail normals, detail normals 1 and detail normals 2: A = none / B = detail 1 / C = detail 2, 0/0.000 85/0.333 170/0.666 255/1.000."
+            },
+            {
+                "name": "specular properties",
+                "first": "specular color map",
+                "description": "Specular color map RGB tints the specular lighting highlights per pixel; the cube map reflection is left untouched. Alpha can mask the specular lighting exponent when the flag is set. Specular lighting is only enabled when the exponent is non-zero."
+            }
+        ],
+        "fields": [
+            {
+                "name": "detail 2 function",
+                "type": "ShaderDetailFunction"
+            },
+            {
+                "name": "detail 2 mask",
+                "type": "ShaderModelDetailMask"
+            },
+            {
+                "name": "detail 2 map scale",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail 2 map",
+                "type": "TagDependency",
+                "classes": [
+                    "bitmap"
+                ]
+            },
+            {
+                "name": "detail 2 map v scale",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "base normal map",
+                "type": "TagDependency",
+                "classes": [
+                    "bitmap"
+                ]
+            },
+            {
+                "name": "base normal coefficient",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail normal 1 map",
+                "type": "TagDependency",
+                "classes": [
+                    "bitmap"
+                ]
+            },
+            {
+                "name": "detail normal 1 coefficient",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail normal 1 scale",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail normal 1 v scale",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail normal 2 map",
+                "type": "TagDependency",
+                "classes": [
+                    "bitmap"
+                ]
+            },
+            {
+                "name": "detail normal 2 coefficient",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail normal 2 scale",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "detail normal 2 v scale",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "specular color map",
+                "type": "TagDependency",
+                "classes": [
+                    "bitmap"
+                ]
+            },
+            {
+                "name": "specular color coefficient",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "specular color exponent",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "specular color flags",
+                "type": "ShaderModelExtendedSpecularColorFlags"
+            },
+            {
+                "type": "pad",
+                "size": 2
+            },
+            {
+                "name": "specular lighting exponent",
+                "type": "float"
+            },
+            {
+                "name": "specular lighting coefficient",
+                "type": "float",
+                "default": 1.0
+            },
+            {
+                "name": "diffuse lighting flags",
+                "type": "ShaderModelExtendedDiffuseLightingFlags"
+            },
+            {
+                "type": "pad",
+                "size": 2
+            },
+            {
+                "type": "pad",
+                "size": 140
+            }
+        ],
+        "type": "struct",
+        "inherits": "ShaderModel",
+        "pre_compile": true,
+        "post_compile": true,
+        "size": 724,
+        "class": "shader_model_extended"
+    }
+]

@@ -84,6 +84,7 @@ namespace Invader::HEK {
         MATCH_TAG_CLASS("sound", TAG_FOURCC_SOUND)
         MATCH_TAG_CLASS("sound_environment", TAG_FOURCC_SOUND_ENVIRONMENT)
         MATCH_TAG_CLASS("shader_model", TAG_FOURCC_SHADER_MODEL)
+        MATCH_TAG_CLASS("shader_model_extended", TAG_FOURCC_SHADER_MODEL_EXTENDED)
         MATCH_TAG_CLASS("shader_transparent_generic", TAG_FOURCC_SHADER_TRANSPARENT_GENERIC)
         MATCH_TAG_CLASS("ui_widget_collection", TAG_FOURCC_UI_WIDGET_COLLECTION)
         MATCH_TAG_CLASS("shader_transparent_plasma", TAG_FOURCC_SHADER_TRANSPARENT_PLASMA)

@@ -89,7 +89,7 @@ static std::size_t add_shader_to_materials(const Tag &tag, std::vector<ExportedM
     
     // Get the shader of fun
     auto &shader = tag.get_base_struct<HEK::Shader>();
-    bool opaque = fourcc == HEK::TagFourCC::TAG_FOURCC_SHADER_MODEL || fourcc == HEK::TagFourCC::TAG_FOURCC_SHADER_ENVIRONMENT;
+    bool opaque = fourcc == HEK::TagFourCC::TAG_FOURCC_SHADER_MODEL || fourcc == HEK::TagFourCC::TAG_FOURCC_SHADER_MODEL_EXTENDED || fourcc == HEK::TagFourCC::TAG_FOURCC_SHADER_ENVIRONMENT;
     
     // Add the material
     auto &material = materials.emplace_back();
