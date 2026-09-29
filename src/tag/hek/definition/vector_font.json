@@ -123,6 +123,7 @@
             }
         ],
         "type": "struct",
+        "pre_compile": true,
         "size": 224,
         "class": "vector_font"
     }

@@ -58,6 +58,14 @@ namespace Invader::Parser {
         this->hardware_character_index = NULL_INDEX;
     }
     
+    void VectorFont::pre_compile(BuildWorkload &workload, std::size_t tag_index, std::size_t, std::size_t) {
+        // Error if the target engine can't use it
+        if(workload.get_build_parameters()->details.build_cache_file_engine != HEK::CacheFileEngine::CACHE_FILE_RINGWORLD) {
+            workload.report_error(BuildWorkload::ErrorType::ERROR_TYPE_FATAL_ERROR, "vector_font tags do not exist on the target engine. Use font, instead.", tag_index);
+            throw InvalidTagDataException();
+        }
+    }
+    
     static std::optional<std::size_t> get_font_character(const Parser::Font &font_data, char16_t c) {
         // Look it up in the character table if we have one present
         auto character_table_count = font_data.character_tables.size();
