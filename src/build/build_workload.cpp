@@ -1505,6 +1505,7 @@ namespace Invader {
 
         switch(this->parameters->details.build_cache_file_engine) {
             case HEK::CacheFileEngine::CACHE_FILE_CUSTOM_EDITION:
+            case HEK::CacheFileEngine::CACHE_FILE_RINGWORLD:
                 for(auto &t : this->tags) {
                     // Find the tag
                     auto find_tag_index = [](const std::string &path, const std::optional<std::vector<Resource>> &resources, bool every_other) -> std::optional<std::size_t> {

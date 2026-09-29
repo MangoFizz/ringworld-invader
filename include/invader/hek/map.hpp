@@ -16,6 +16,7 @@ namespace Invader::HEK {
         CACHE_FILE_RETAIL = 7,
         CACHE_FILE_CUSTOM_EDITION = 609,
         CACHE_FILE_MCC_CEA = 13,
+        CACHE_FILE_RINGWORLD = 0x300,
         
         CACHE_FILE_NATIVE = 0x1A86
     };
@@ -35,6 +36,7 @@ namespace Invader::HEK {
         GAME_ENGINE_GEARBOX_RETAIL,
         GAME_ENGINE_GEARBOX_CUSTOM_EDITION,
         GAME_ENGINE_MCC_COMBAT_EVOLVED_ANNIVERSARY,
+        GAME_ENGINE_RINGWORLD,
         
         GAME_ENGINE_ENUM_COUNT
     };

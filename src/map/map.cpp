@@ -223,6 +223,7 @@ namespace Invader {
                 case CacheFileEngine::CACHE_FILE_NATIVE:
                 case CacheFileEngine::CACHE_FILE_MCC_CEA:
                 case CacheFileEngine::CACHE_FILE_XBOX:
+                case CacheFileEngine::CACHE_FILE_RINGWORLD:
                     break;
                 default:
                     throw UnsupportedMapEngineException();

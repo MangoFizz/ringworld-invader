@@ -172,6 +172,24 @@ namespace Invader::HEK {
             PC_BOILERPLATE
         },
         {
+            .name = "Ringworld",
+            .shorthand = "ringworld",
+            .engine = GameEngine::GAME_ENGINE_RINGWORLD,
+            .cache_version = CacheFileEngine::CACHE_FILE_RINGWORLD,
+            .build_string = "01.00.00.0609",
+            .build_string_is_enforced = false,
+            .base_memory_address = GEARBOX_BASE_MEMORY_ADDRESS,
+            .tag_space_length = GEARBOX_TAG_SPACE_LENGTH,
+            .maximum_file_size = GEARBOX_MAX_FILE_SIZE,
+            .maximum_scenario_script_nodes = ORIGINAL_MAXIMUM_SCENARIO_SCRIPT_NODES,
+            .scenario_script_compile_target = RIATCompileTarget::RIAT_HaloCustomEdition,
+            .supports_external_bitmaps_map = true,
+            .supports_external_sounds_map = true,
+            .supports_external_loc_map = true,
+            .uses_indexing = true,
+            PC_BOILERPLATE
+        },
+        {
             .name = "Halo: Combat Evolved (Gearbox)",
             .shorthand = "gbx-retail",
             .engine = GameEngine::GAME_ENGINE_GEARBOX_RETAIL,
