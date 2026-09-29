@@ -60,7 +60,8 @@
             "load game list update",
             "checking for updates",
             "direct ip connect update",
-            "network settings update"
+            "network settings update",
+            "video menu extended update"
         ],
         "exclude": [
             {
@@ -301,7 +302,11 @@
             "network settings edit a port",
             "network settings defaults",
             "load game menu delete request",
-            "load game menu delete finish"
+            "load game menu delete finish",
+            "plr prof change video set extended",
+            "video menu categorized init",
+            "video menu categorized dispose",
+            "video menu categorized defaults"
         ],
         "exclude": [
             {
