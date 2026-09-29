@@ -1,5 +1,13 @@
 [
     {
+        "name": "VectorFontFlags",
+        "type": "bitfield",
+        "fields": [
+            "do not render shadow"
+        ],
+        "width": 32
+    },
+    {
         "name": "VectorFont",
         "fields": [
             {
@@ -19,8 +27,37 @@
                 "type": "float"
             },
             {
+                "name": "flags",
+                "type": "VectorFontFlags"
+            },
+            {
+                "name": "shadow offset x",
+                "type": "float",
+                "comment": "horizontal displacement of the text shadow, in screen units"
+            },
+            {
+                "name": "shadow offset y",
+                "type": "float",
+                "comment": "vertical displacement of the text shadow, in screen units"
+            },
+            {
+                "name": "ascending height",
+                "type": "int16",
+                "comment": "distance from the top of the line to the baseline; leave at zero to use the font's own metrics"
+            },
+            {
+                "name": "descending height",
+                "type": "int16",
+                "comment": "distance from the baseline to the bottom of the line"
+            },
+            {
+                "name": "leading height",
+                "type": "int16",
+                "comment": "extra space above the ascender"
+            },
+            {
                 "type": "pad",
-                "size": 12
+                "size": 6
             },
             {
                 "name": "plain",
@@ -119,7 +156,7 @@
             },
             {
                 "type": "pad",
-                "size": 32
+                "size": 20
             }
         ],
         "type": "struct",
