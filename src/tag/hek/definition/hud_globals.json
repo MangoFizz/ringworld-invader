@@ -179,8 +179,7 @@
             },
             {
                 "name": "canvas size",
-                "type": "HUDInterfaceCanvasSize",
-                "unused": true
+                "type": "HUDInterfaceCanvasSize"
             },
             {
                 "type": "pad",
