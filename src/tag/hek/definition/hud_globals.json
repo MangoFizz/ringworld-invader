@@ -203,12 +203,27 @@
                 "type": "HUDInterfaceScalingFlags"
             },
             {
+                "name": "messaging flags",
+                "type": "HUDGlobalsMessagingFlags",
+                "engines": ["ringworld"]
+            },
+            {
+                "name": "action prompt anchor",
+                "type": "HUDInterfaceAnchor",
+                "engines": ["ringworld"]
+            },
+            {
                 "type": "pad",
                 "size": 2
             },
             {
+                "name": "action prompt offset",
+                "type": "Point2DInt",
+                "engines": ["ringworld"]
+            },
+            {
                 "type": "pad",
-                "size": 20
+                "size": 12
             },
             {
                 "name": "fullscreen font",

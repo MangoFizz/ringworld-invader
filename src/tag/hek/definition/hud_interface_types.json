@@ -123,6 +123,16 @@
         "width": 16
     },
     {
+        "name": "HUDGlobalsMessagingFlags",
+        "type": "bitfield",
+        "fields": [
+            "use anchor for justification",
+            "separate action prompt",
+            "apply multiline fixups"
+        ],
+        "width": 16
+    },
+    {
         "name": "HUDInterfaceFlashFlags",
         "type": "bitfield",
         "fields": [
@@ -154,7 +164,8 @@
         "fields": [
             "use text from string list instead",
             "override default color",
-            "width offset is absolute icon width"
+            "width offset is absolute icon width",
+            "use top bound for vertical offset"
         ],
         "width": 8
     },
