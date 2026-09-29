@@ -21,6 +21,16 @@ namespace Invader::HEK {
         CACHE_FILE_NATIVE = 0x1A86
     };
     
+    /**
+     * Ringworld runs Custom Edition's gameplay and netcode, so a stock scenario built for it has to get
+     * the same values Gearbox shipped or it will not match a Custom Edition server.
+     * @param engine cache file engine
+     * @return       true if the engine plays like Custom Edition
+     */
+    constexpr bool engine_plays_like_custom_edition(CacheFileEngine engine) noexcept {
+        return engine == CACHE_FILE_CUSTOM_EDITION || engine == CACHE_FILE_RINGWORLD;
+    }
+
     using CacheFileType = ScenarioType;
     const char *type_name(CacheFileType type) noexcept;
     

@@ -188,7 +188,7 @@ namespace Invader::Parser {
 
         // Jason jones autoaim for the rocket warthog
         if(workload.building_stock_map && (workload.tags[tag_index].path == "vehicles\\rwarthog\\rwarthog_gun")) {
-            bool native_or_custom_edition = engine_target == HEK::CacheFileEngine::CACHE_FILE_CUSTOM_EDITION || engine_target == HEK::CacheFileEngine::CACHE_FILE_NATIVE;
+            bool native_or_custom_edition = HEK::engine_plays_like_custom_edition(engine_target) || engine_target == HEK::CacheFileEngine::CACHE_FILE_NATIVE;
             float new_autoaim_angle = native_or_custom_edition ? DEGREES_TO_RADIANS(6.0F) : DEGREES_TO_RADIANS(1.0F);
             float new_deviation_angle = native_or_custom_edition ? DEGREES_TO_RADIANS(12.0F) : DEGREES_TO_RADIANS(1.0F);
 

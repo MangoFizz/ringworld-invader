@@ -75,7 +75,7 @@ namespace Invader::Parser {
 
         if(
             workload.cache_file_type == HEK::CacheFileType::SCENARIO_TYPE_MULTIPLAYER &&
-            (engine_target == HEK::CacheFileEngine::CACHE_FILE_CUSTOM_EDITION ||
+            (HEK::engine_plays_like_custom_edition(engine_target) ||
             engine_target == HEK::CacheFileEngine::CACHE_FILE_RETAIL ||
             engine_target == HEK::CacheFileEngine::CACHE_FILE_DEMO) &&
             !workload.disable_error_checking
@@ -109,7 +109,7 @@ namespace Invader::Parser {
 
             // See if we have the ting sound. If so, make it louder on custom edition.
             if(sound_count > HEK::MultiplayerInformationSound::MULTIPLAYER_INFORMATION_SOUND_TING) {
-                const float TING_VOLUME = target_engine == HEK::CacheFileEngine::CACHE_FILE_CUSTOM_EDITION ? 1.0F : 0.2F;
+                const float TING_VOLUME = HEK::engine_plays_like_custom_edition(target_engine) ? 1.0F : 0.2F;
                 const auto sound_id = reinterpret_cast<const GlobalsSound::struct_little *>(workload.structs[*globals_multiplayer_information_struct.resolve_pointer(&globals_multiplayer_information_data.sounds.pointer)].data.data())[HEK::MultiplayerInformationSound::MULTIPLAYER_INFORMATION_SOUND_TING].sound.tag_id.read();
                 if(!sound_id.is_null()) {
                     auto &random_gain_modifier = reinterpret_cast<Sound::struct_little *>(workload.structs[*workload.tags[sound_id.index].base_struct].data.data())->random_gain_modifier;
